@@ -1,0 +1,7 @@
+{
+  "name": "basics-01-starting-code",
+  "version": "1.0.0",
+  "dependencies": {
+    "vue": "latest"
+  }
+}

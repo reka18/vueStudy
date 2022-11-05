@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events" v-cloak>
+      <h2>Events in Action</h2>
+      <button @click.left="add(5)">Add 5</button>
+      <button @click.left="sub(5)">Subtract 5</button>
+      <p v-once>Starting Counter: {{ this.counter }}</p>
+      <p>Counter: {{ this.counter }}</p>
+      <!--<input type="text" v-model="this.firstName"-->
+      <!--       @keyup.enter="updateName" placeholder="firstname">-->
+      <!--<input type="text" v-model="this.lastName"-->
+      <!--       @keyup.enter="updateName" placeholder="lastname">-->
+      <input type="text"
+             :value="this.firstName"
+             @input="setFirstName($event.target.value)"
+             placeholder="firstname">
+      <!-- In order for the input field to reset we need :value -->
+      <input type="text"
+             placeholder="lastname"
+             v-model="this.lastName"> <!-- v-model same as @input & :value together -->
+      <button @click="resetInput">Reset Input</button>
+      <!--<p>Full name: {{ this.fullName }}</p>-->
+      <p>Full name: {{ computedFullName }}</p>
+      <form @submit.prevent="submitSignUp">
+        <input type="text">
+        <button>Sign Up</button>
+      </form>
+    </section>
+  </body>
+</html>
